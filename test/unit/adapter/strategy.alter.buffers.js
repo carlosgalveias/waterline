@@ -30,7 +30,7 @@ describe('Alter Mode Recovery with buffer attributes', function () {
       id: 12
     }];
 
-    inserted = _.cloneDeep(persistentData[0], function dealWithBuffers(val) {
+    inserted = _.cloneDeepWith(persistentData[0], function dealWithBuffers(val) {
       if (val instanceof Buffer) {
         return val.slice();
       }

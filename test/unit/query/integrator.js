@@ -41,8 +41,8 @@ describe('integrator', function () {
 		describe(':: N..M :: ',function () {
 
 			var fixtures = {
-				joins: _.cloneDeep(require('../../support/fixtures/integrator/n..m.joins.js')),
-				cache: _.cloneDeep(require('../../support/fixtures/integrator/cache'))
+				joins: _.cloneDeepWith(require('../../support/fixtures/integrator/n..m.joins.js')),
+				cache: _.cloneDeepWith(require('../../support/fixtures/integrator/cache'))
 			};
 			var results;
 
@@ -72,7 +72,7 @@ describe('integrator', function () {
 						result
 						.should.be.Object;
 
-						_.any(aliases, function (alias) {
+						_.some(aliases, function (alias) {
 							return result[alias];
 						})
 						.should.be.true;
@@ -88,8 +88,8 @@ describe('integrator', function () {
 					});
 
 					// All aliases are accounted for in results
-					_.all(aliases, function (alias) {
-						return results.length === _.pluck(results, alias).length;
+					_.every(aliases, function (alias) {
+						return results.length === _.map(results, alias).length;
 					}).should.be.true;
 				});
 
@@ -125,8 +125,8 @@ describe('integrator', function () {
 
 			var results;
 			var fixtures = {
-				joins: _.cloneDeep(require('../../support/fixtures/integrator/n..1.joins.js')),
-				cache: _.cloneDeep(require('../../support/fixtures/integrator/cache'))
+				joins: _.cloneDeepWith(require('../../support/fixtures/integrator/n..1.joins.js')),
+				cache: _.cloneDeepWith(require('../../support/fixtures/integrator/cache'))
 			};
 
 			before(function (done){
@@ -153,7 +153,7 @@ describe('integrator', function () {
 						result
 						.should.be.Object;
 
-						_.any(aliases, function (alias) {
+						_.some(aliases, function (alias) {
 							return result[alias];
 						})
 						.should.be.true;
@@ -170,8 +170,8 @@ describe('integrator', function () {
 					});
 
 					// All aliases are accounted for in results
-					_.all(aliases, function (alias) {
-						return results.length === _.pluck(results, alias).length;
+					_.every(aliases, function (alias) {
+						return results.length === _.map(results, alias).length;
 					}).should.be.true;
 				});
 
@@ -201,8 +201,8 @@ describe('integrator', function () {
 
 		var results;
 		var fixtures = {
-			joins: _.cloneDeep(require('../../support/fixtures/integrator/multiple.joins.js')),
-			cache: _.cloneDeep(require('../../support/fixtures/integrator/cache'))
+			joins: _.cloneDeepWith(require('../../support/fixtures/integrator/multiple.joins.js')),
+			cache: _.cloneDeepWith(require('../../support/fixtures/integrator/cache'))
 		};
 
 		before(function (done){
@@ -229,7 +229,7 @@ describe('integrator', function () {
 					result
 					.should.be.Object;
 
-					_.any(aliases, function (alias) {
+					_.some(aliases, function (alias) {
 						return result[alias];
 					})
 					.should.be.true;
@@ -246,8 +246,8 @@ describe('integrator', function () {
 				});
 
 				// All aliases are accounted for in results
-				_.all(aliases, function (alias) {
-					return results.length === _.pluck(results, alias).length;
+				_.every(aliases, function (alias) {
+					return results.length === _.map(results, alias).length;
 				}).should.be.true;
 
 			});

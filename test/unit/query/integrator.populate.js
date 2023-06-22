@@ -5,8 +5,8 @@ var _ = require('lodash');
 var leftOuterJoin = require('../../../lib/waterline/query/integrator/leftOuterJoin');
 var populate = require('../../../lib/waterline/query/integrator/populate');
 var fixtures = {
-  cache: _.cloneDeep(require('../../support/fixtures/integrator/cache')),
-  populateResults: _.cloneDeep(require('../../support/fixtures/integrator/populateResults'))
+  cache: _.cloneDeepWith(require('../../support/fixtures/integrator/cache')),
+  populateResults: _.cloneDeepWith(require('../../support/fixtures/integrator/populateResults'))
 };
 var assert = require('assert');
 var should = require('should');
@@ -18,7 +18,7 @@ describe('populate', function() {
 
   describe('N..1 ::', function() {
 
-    var results = _.cloneDeep(fixtures.cache.message);
+    var results = _.cloneDeepWith(fixtures.cache.message);
     var expected = {
       length: 3,
       properties: ['to', 'id', 'subject', 'body', 'from'],
@@ -49,7 +49,7 @@ describe('populate', function() {
 
     it('output should match the expected results', function() {
       results.should.have.lengthOf(expected.length);
-      _.all(results, function (row) {
+      _.every(results, function (row) {
         row.should.have.properties(expected.properties);
       });
       results.should.eql(expected.results);
@@ -61,11 +61,11 @@ describe('populate', function() {
 
   describe('N..M ::', function() {
 
-    var results = _.cloneDeep(fixtures.cache.message);
+    var results = _.cloneDeepWith(fixtures.cache.message);
     var expected = {
       length: 3,
       properties: ['to', 'id', 'subject', 'body', 'from'],
-      results: _.cloneDeep(fixtures.populateResults.message___message_to_user___user)
+      results: _.cloneDeepWith(fixtures.populateResults.message___message_to_user___user)
     };
 
     it('should not throw', function() {
@@ -98,7 +98,7 @@ describe('populate', function() {
 
     it('output should match the expected results', function() {
       results.should.have.lengthOf(expected.length);
-      _.all(results, function (row) {
+      _.every(results, function (row) {
         row.should.have.properties(expected.properties);
       });
       results.should.eql(expected.results);

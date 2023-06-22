@@ -113,7 +113,7 @@ describe('Model', function() {
 
             // Grab this value just for first update on the second test
             if (!updatedThroughCollection && arguments[1].id === 2) {
-              updatedThroughCollection = _.cloneDeep(arguments[1]);
+              updatedThroughCollection = _.cloneDeepWith(arguments[1]);
             }
 
             return _super.apply(personCollection, arguments);

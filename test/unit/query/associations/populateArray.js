@@ -88,6 +88,7 @@ describe('Collection Query', function() {
 
     it('should populate all related collections', function(done) {
       Car.find().populate(['driver','tickets']).exec(function(err, car) {
+        console.log({car: JSON.stringify(car, null, 2)})
         if(err) return done(err);
         assert(car[0].driver);
         assert(car[0].driver.name);
