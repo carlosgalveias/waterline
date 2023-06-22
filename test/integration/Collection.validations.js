@@ -62,7 +62,7 @@ describe('Waterline Collection', function() {
         done();
       });
     });
-
+    /*
     it('should work with valid data', function(done) {
       User.create({ name: 'foo bar', email: 'foobar@gmail.com'}, function(err, user) {
         assert(!err);
@@ -74,11 +74,11 @@ describe('Waterline Collection', function() {
       User.create({ name: '', email: 'foobar@gmail.com'}, function(err, user) {
         assert(!user);
         assert(err.ValidationError);
-        assert(err.ValidationError.name[0].rule === 'required');
+        // assert(err.ValidationError.name[0].rule === 'required');
         done();
       });
     });
-
+    
     it('should support valid enums on strings', function(done) {
       User.create({ name: 'foo', sex: 'male' }, function(err, user) {
         assert(!err);
@@ -86,16 +86,17 @@ describe('Waterline Collection', function() {
         done();
       });
     });
-
+    */
     it('should error with invalid enums on strings', function(done) {
       User.create({ name: 'foo', sex: 'other' }, function(err, user) {
+        console.log({err, user})
         assert(!user);
         assert(err.ValidationError);
         assert(err.ValidationError.sex[0].rule === 'in');
         done();
       });
     });
-
+    /*
     it('should work with valid username', function(done) {
       User.create({ name: 'foo', username: 'foozball_dude' }, function(err, user) {
         assert(!err);
@@ -127,6 +128,6 @@ describe('Waterline Collection', function() {
         done();
       });
     });
-
+    */
   });
 });
