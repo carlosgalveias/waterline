@@ -23,12 +23,11 @@
   ],
   "dependencies": {
     "anchor": "https://github.com/carlosgalveias/anchor.git#v0.11.7",
-    "async": "^1.5.0",
+    "async": "1.5.2",
     "bluebird": "3.2.1",
     "deep-diff": "0.3.4",
     "lodash": "^4.17.21",
     "prompt": "1.0.0",
-    "request": "^2.88.2",
     "switchback": "^2.0.5",
     "waterline-criteria": "https://github.com/carlosgalveias/waterline-criteria.git#v1.0.2",
     "waterline-schema": "https://github.com/carlosgalveias/waterline-schema.git#v0.3.0"
