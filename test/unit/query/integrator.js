@@ -41,8 +41,8 @@ describe('integrator', function () {
 		describe(':: N..M :: ',function () {
 
 			var fixtures = {
-				joins: _.cloneDeepWith(require('../../support/fixtures/integrator/n..m.joins.js')),
-				cache: _.cloneDeepWith(require('../../support/fixtures/integrator/cache'))
+				joins: _.cloneDeep(require('../../support/fixtures/integrator/n..m.joins.js')),
+				cache: _.cloneDeep(require('../../support/fixtures/integrator/cache'))
 			};
 			var results;
 
@@ -125,8 +125,8 @@ describe('integrator', function () {
 
 			var results;
 			var fixtures = {
-				joins: _.cloneDeepWith(require('../../support/fixtures/integrator/n..1.joins.js')),
-				cache: _.cloneDeepWith(require('../../support/fixtures/integrator/cache'))
+				joins: _.cloneDeep(require('../../support/fixtures/integrator/n..1.joins.js')),
+				cache: _.cloneDeep(require('../../support/fixtures/integrator/cache'))
 			};
 
 			before(function (done){
@@ -201,8 +201,8 @@ describe('integrator', function () {
 
 		var results;
 		var fixtures = {
-			joins: _.cloneDeepWith(require('../../support/fixtures/integrator/multiple.joins.js')),
-			cache: _.cloneDeepWith(require('../../support/fixtures/integrator/cache'))
+			joins: _.cloneDeep(require('../../support/fixtures/integrator/multiple.joins.js')),
+			cache: _.cloneDeep(require('../../support/fixtures/integrator/cache'))
 		};
 
 		before(function (done){

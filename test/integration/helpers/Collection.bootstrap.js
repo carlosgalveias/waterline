@@ -20,7 +20,7 @@ module.exports = function (options) {
     options.adapter.identity = adapterIdentity;
 
     var Model = Waterline.Collection.extend(
-      _.mergeWith({
+      _.merge({
         attributes: {},
         connection: 'my_foo',
         tableName: 'tests',

@@ -15,8 +15,8 @@ describe('instance methods', function() {
       var model;
       var i = 1;
       var container = { update: [], create: [] };
-      var foo = _.cloneDeepWith(container);
-      var bar = _.cloneDeepWith(container);
+      var foo = _.cloneDeep(container);
+      var bar = _.cloneDeep(container);
 
       before(function() {
         var fixture = belongsToFixture();
